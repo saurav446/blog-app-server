@@ -15,7 +15,7 @@ const path = require("path");
 dotenv.config();
 app.use(express.json());
 app.use(cors()); 
-const PORT = process.env.PORT || 5000;
+const port = 5000;
 
 app.use("/images", express.static(path.join(__dirname, "/images")));
 
@@ -54,8 +54,6 @@ app.use("/api/users",userRoute)
 app.use("/api/posts",postRoute) 
 app.use("/api/cate",catRoute)
 
-app.listen(PORT, () => {
-  console.log("Backend is running.");
-});
+app.listen(process.env.PORT || port);
 
 
